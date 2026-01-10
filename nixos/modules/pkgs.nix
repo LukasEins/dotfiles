@@ -17,6 +17,7 @@
  fuzzel
  matugen
  equicord
+ discord
  mako
  xdg-desktop-portal-gtk
  xdg-desktop-portal-gnome

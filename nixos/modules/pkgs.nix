@@ -18,7 +18,7 @@
  matugen
  (discord.override {
   # withOpenASAR = true; # can do this here too
-    withVencord = true;
+    withEquicord = true;
  })
  mako
  xdg-desktop-portal-gtk

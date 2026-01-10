@@ -1,5 +1,5 @@
 {
-	description="Nixos config with noctalia";
+	description="Lukas NixOS setup";
 
 	inputs={
 		nixpkgs.url="github:nixos/nixpkgs/nixos-unstable";
@@ -8,11 +8,13 @@
 			url="github:outfoxxed/quickshell";
 			inputs.nixpkgs.follows="nixpkgs";
 		};
+
 		noctalia={
 			url="github:noctalia-dev/noctalia-shell";
 			inputs.nixpkgs.follows="nixpkgs";
-		#	inputs.quickshell.follows="quickshell";
+#			inputs.quickshell.follows="quickshell";
 		};
+
 	};
 
 
@@ -20,7 +22,7 @@
 
 	nixosConfigurations.nixos=nixpkgs.lib.nixosSystem{
 	specialArgs={ inherit inputs; };		
-modules=[
+	modules=[
 		./configuration.nix
 		
 		];

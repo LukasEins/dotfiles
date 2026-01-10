@@ -16,7 +16,7 @@
  xwayland-satellite
  fuzzel
  matugen
- equibop
+ equicord
  mako
  xdg-desktop-portal-gtk
  xdg-desktop-portal-gnome

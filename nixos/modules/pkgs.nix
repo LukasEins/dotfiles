@@ -6,7 +6,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
- vim
  wget
  git   
  fastfetch
@@ -42,6 +41,7 @@
  qbittorrent
  p7zip-rar
  ani-cli
+ ghostty
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
   ]; 
 

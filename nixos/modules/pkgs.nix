@@ -35,7 +35,7 @@
  btop
  davinci-resolve
  ncdu
- notion-app-enhanced
+ #notion-app
  obsidian
  calibre
  qbittorrent

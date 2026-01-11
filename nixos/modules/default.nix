@@ -18,5 +18,6 @@
       ./shell.nix
       ./syncthing.nix
       ./users.nix
+      ./fonts.nix
     ];
 }

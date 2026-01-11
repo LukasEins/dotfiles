@@ -35,6 +35,13 @@
  reversal-icon-theme
  btop
  davinci-resolve
+ ncdu
+ notion-app
+ obsidian
+ calibre
+ qbittorrent
+ p7zip-rar
+ ani-cli
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
   ]; 
 

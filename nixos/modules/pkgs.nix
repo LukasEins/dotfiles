@@ -42,6 +42,7 @@
  p7zip-rar
  ani-cli
  ghostty
+ ntfs3g
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
   ]; 
 

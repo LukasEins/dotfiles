@@ -3,7 +3,7 @@
 {
 
 #boot.kernelPackages=pkgs.linuxPackages_zen;
-boot.kernelPackages=pkgs.cachyosKernels.linuxPackages-cachyos-bore;
+#boot.kernelPackages=pkgs.cachyosKernels.linuxPackages-cachyos-bore;
 
   # Bootloader
   boot.loader.grub.enable = true;

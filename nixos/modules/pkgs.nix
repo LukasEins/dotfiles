@@ -43,6 +43,7 @@
  ani-cli
  ghostty
  ntfs3g
+ ascii-image-converter
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
   ]; 
 

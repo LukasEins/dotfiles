@@ -7,7 +7,7 @@
 
   environment.systemPackages = with pkgs; [
  wget
- git   
+ git
  fastfetch
  alacritty
  eog 
@@ -15,16 +15,13 @@
  xwayland-satellite
  fuzzel
  matugen
- (discord.override {
-  # withOpenASAR = true; # can do this here too
-    withEquicord = true;
- })
+ (discord.override{withEquicord = true;})
  mako
  xdg-desktop-portal-gtk
  xdg-desktop-portal-gnome
  xdg-user-dirs
- lxmenu-data
- shared-mime-info
+ #lxmenu-data
+ #shared-mime-info
  papirus-icon-theme
  papirus-folders
  file-roller

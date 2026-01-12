@@ -2,13 +2,11 @@
   description = "Lukas NixOS setup";
 
   inputs = {
-    # Core
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Kernel & Optimization
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
-    # DE / Shell
     quickshell = {
       url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";

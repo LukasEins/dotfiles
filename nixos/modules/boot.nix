@@ -2,12 +2,14 @@
 
 {
 
-boot.kernelPackages=pkgs.linuxPackages_zen;
+#boot.kernelPackages=pkgs.linuxPackages_zen;
+boot.kernelPackages=pkgs.cachyosKernels.linuxPackages-cachyos-bore;
 
-  # Bootloader.
+  # Bootloader
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
+
 # boot.loader.systemd-boot.enable = true;
 # boot.loader.efi.canTouchEfiVariables = true;
 # boot.loader.systemd-boot.configurationLimit = 10;

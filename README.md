@@ -9,7 +9,7 @@ __NixOS config with CachyOS-bore Kernel__
 
 __Yuki Setup:__
 
-(https://i.imgur.com/A4SYK0p.gif)
+![](https://i.imgur.com/A4SYK0p.gif)
 
 - OS: NixOS
 - WM: Niri

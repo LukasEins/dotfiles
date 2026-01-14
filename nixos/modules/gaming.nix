@@ -25,6 +25,7 @@
  protonup-qt
  lutris
  prismlauncher
+ inputs.hytale-launcher.packages.${stdenv.hostPlatform.system}.default
   ];
 
 }

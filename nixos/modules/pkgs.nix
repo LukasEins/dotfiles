@@ -41,6 +41,7 @@
  ghostty
  ntfs3g
  ascii-image-converter
+ rose-pine-cursor
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
   ]; 
 

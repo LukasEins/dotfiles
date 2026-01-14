@@ -9,7 +9,7 @@ __NixOS config with CachyOS-bore Kernel__
 
 __Yuki Setup:__
 
-<div class="tenor-gif-embed" data-postid="25136436" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%"><a href="https://tenor.com/view/fast-typing-anime-keyboard-computer-gif-25136436">Fast Typing Anime GIF</a>from <a href="https://tenor.com/search/fast+typing-gifs">Fast Typing GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+(https://i.imgur.com/A4SYK0p.gif)
 
 - OS: NixOS
 - WM: Niri

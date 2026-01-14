@@ -23,7 +23,6 @@
  (tela-circle-icon-theme.override {colorVariants = [ "green" ]; })
  file-roller
  nwg-look
- hyfetch
  gedit
  reversal-icon-theme
  btop

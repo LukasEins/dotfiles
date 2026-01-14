@@ -20,7 +20,7 @@
  xdg-desktop-portal-gtk
  xdg-desktop-portal-gnome
  xdg-user-dirs
- (tela-circle-icon-theme.override {colorVariants = [ "green" ]; })
+ (whitesur-icon-theme.override {themeVariants = [ "green" ]; })
  file-roller
  nwg-look
  gedit

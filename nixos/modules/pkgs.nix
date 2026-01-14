@@ -20,10 +20,7 @@
  xdg-desktop-portal-gtk
  xdg-desktop-portal-gnome
  xdg-user-dirs
- #lxmenu-data
- #shared-mime-info
- papirus-icon-theme
- papirus-folders
+ (tela-circle-icon-theme.override {colorVariants = [ "green" ]; })
  file-roller
  nwg-look
  hyfetch
@@ -32,7 +29,6 @@
  btop
  davinci-resolve
  ncdu
- #notion-app
  obsidian
  calibre
  qbittorrent
@@ -43,6 +39,9 @@
  ascii-image-converter
  rose-pine-cursor
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
+ #notion-app
+ #lxmenu-data
+ #shared-mime-info
   ]; 
 
 }

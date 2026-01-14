@@ -21,7 +21,7 @@
   };
 
   outputs = { self, nixpkgs, hytale-launcher, ... } @ inputs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.Yuki = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
       specialArgs = { inherit inputs; };

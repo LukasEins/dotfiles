@@ -5,6 +5,8 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
+
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     quickshell = {
@@ -18,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ inputs: {
+  outputs = { self, nixpkgs, hytale-launcher, ... } @ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 

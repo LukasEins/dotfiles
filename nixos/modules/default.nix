@@ -19,5 +19,6 @@
       ./syncthing.nix
       ./users.nix
       ./fonts.nix
+      ./cachyos.nix
     ];
 }

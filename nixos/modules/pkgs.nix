@@ -21,6 +21,8 @@
  xdg-desktop-portal-gnome
  xdg-user-dirs
  (whitesur-icon-theme.override {themeVariants = [ "green" ]; })
+ (reversal-icon-theme.override {colorVariants = [ "-green" ]; })
+ (colloid-icon-theme.override {colorVariants = [ "green" ]; })
  file-roller
  nwg-look
  gedit

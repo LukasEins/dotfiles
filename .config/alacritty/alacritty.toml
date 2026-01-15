@@ -1,0 +1,45 @@
+[colors.primary]
+background = '#121410'
+foreground = '#e3e3dc'
+
+[colors.selection]
+text = '#e3e3dc'
+background = '#597342'
+
+[colors.cursor]
+text = '#121410'
+cursor = '#b2d096'
+
+[colors.normal]
+black   = '#121410'
+red     = '#e34a6b'
+green   = '#8ad66e'
+yellow  = '#dbb97b'
+blue    = '#68993d'
+magenta = '#8a9c79'
+cyan    = '#b2d096'
+white   = '#abb2bf'
+
+[colors.bright]
+black   = '#5c6370'
+red     = '#e05f7f'
+green   = '#9ee086'
+yellow  = '#e8cc97'
+blue    = '#bedea0'
+magenta = '#688237'
+cyan    = '#5d8448'
+white   = '#ffffff'
+
+
+
+[window]
+padding = { x = 3, y = 3 }
+dynamic_padding = true
+opacity = 0.95
+
+[font]
+size=15
+
+[general]
+import = ["themes/noctalia.toml"]
+live_config_reload = true

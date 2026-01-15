@@ -28,7 +28,6 @@
 
       modules = [
         ./configuration.nix
-        ./modules/cachyos.nix
       ];
     };
   };

@@ -148,11 +148,6 @@ window-rule {
     clip-to-geometry true
 }
 
-debug {
-  // Allows notification actions and window activation from Noctalia.
-  honor-xdg-activation-with-invalid-serial
-}
-
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 

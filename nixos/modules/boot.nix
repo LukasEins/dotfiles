@@ -24,7 +24,14 @@ hardware.bluetooth.enable=true;
 services.displayManager.sddm = {
   enable = true;
   wayland.enable = true;
-  theme = "astronaut";
-};
+    theme = "catppuccin-mocha-mauve";
+  };
 
+  environment.systemPackages = [ 
+    (pkgs.catppuccin-sddm.override {
+      flavor = "mocha";
+      accent = "mauve";
+    })
+  ];
 }
+

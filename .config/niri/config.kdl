@@ -32,7 +32,7 @@ input {
 }
 
 // niri msg outputs to find names
-output "Virtual-1" {
+\-output "Virtual-1" {
     mode "3840x2160@120"
     scale 1.25
  // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.

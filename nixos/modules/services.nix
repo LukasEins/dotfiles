@@ -8,7 +8,6 @@
   services.gvfs.enable=true;
   services.fstrim.enable=true;
   services.gnome.gnome-keyring.enable = true;
-  services.displayManager.gdm.enable = true;
   services.udisks2.enable = true;
   #services.mullvad-vpn.package = pkgs.mullvad-vpn;
 }

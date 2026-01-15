@@ -21,4 +21,6 @@
     "zswap.shrinker_enabled=1" # whether to shrink the pool proactively on high memory pressure
   ];
 
+hardware.cpu.amd.updateMicrocode=true;
+
 }

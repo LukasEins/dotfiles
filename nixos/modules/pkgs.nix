@@ -15,22 +15,20 @@
  xwayland-satellite
  fuzzel
  matugen
- (discord.override{withEquicord = true;})
  mako
  xdg-desktop-portal-gtk
  xdg-desktop-portal-gnome
  xdg-user-dirs
+ (discord.override{withEquicord = true;})
  (whitesur-icon-theme.override {themeVariants = [ "green" ]; })
  (reversal-icon-theme.override {colorVariants = [ "-green" ]; })
  (colloid-icon-theme.override {colorVariants = [ "green" ]; })
  file-roller
  nwg-look
  gedit
- reversal-icon-theme
  btop
  davinci-resolve
  ncdu
- obsidian
  calibre
  qbittorrent
  p7zip-rar

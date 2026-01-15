@@ -33,7 +33,7 @@
  qbittorrent
  p7zip-rar
  ani-cli
- ghostty
+ kitty
  ntfs3g
  ascii-image-converter
  rose-pine-cursor

@@ -19,7 +19,7 @@
  xdg-desktop-portal-gtk
  xdg-desktop-portal-gnome
  xdg-user-dirs
- (discord.override{withEquicord = true;})
+ (discord.override{withEquicord = true; withOpenASAR = true;})
  (whitesur-icon-theme.override {themeVariants = [ "green" ]; })
  (reversal-icon-theme.override {colorVariants = [ "-green" ]; })
  (colloid-icon-theme.override {colorVariants = [ "green" ]; })

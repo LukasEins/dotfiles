@@ -39,6 +39,7 @@
  ntfs3g
  ascii-image-converter
  mpv
+ oh-my-zsh
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
  #notion-app
  #lxmenu-data

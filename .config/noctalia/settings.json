@@ -9,6 +9,18 @@
         "iconMode": "native",
         "ignoreMouseInput": false,
         "pinnedApps": [
+            "firefox",
+            "kitty",
+            "discord",
+            "steam",
+            "davinci-resolve",
+            "hytale-launcher",
+            "net.lutris.Lutris",
+            "com.obsproject.Studio",
+            "org.prismlauncher.PrismLauncher",
+            "org.qbittorrent.qBittorrent",
+            "code",
+            "org.pulseaudio.pavucontrol"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -31,7 +43,7 @@
     "bar": {
         "backgroundOpacity": 0.9500000000000001,
         "capsuleOpacity": 0.6,
-        "density": "comfortable",
+        "density": "default",
         "exclusive": true,
         "floating": false,
         "hideOnOverview": false,
@@ -47,7 +59,7 @@
         "widgets": {
             "center": [
                 {
-                    "characterCount": 5,
+                    "characterCount": 10,
                     "colorizeIcons": false,
                     "enableScrollWheel": true,
                     "followFocusedScreen": false,
@@ -61,21 +73,21 @@
                     "unfocusedIconsOpacity": 1
                 },
                 {
-                    "customFont": "",
-                    "formatHorizontal": "HH:mm ddd, MMM dd",
+                    "customFont": "Noto Sans",
+                    "formatHorizontal": "dd.MM | HH:mm ddd",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
                     "useCustomFont": false,
-                    "usePrimaryColor": true
+                    "usePrimaryColor": false
                 }
             ],
             "left": [
                 {
-                    "colorizeSystemIcon": "none",
-                    "enableColorization": false,
+                    "colorizeSystemIcon": "secondary",
+                    "enableColorization": true,
                     "hideMode": "alwaysExpanded",
-                    "icon": "snowflake",
+                    "icon": "niri",
                     "id": "CustomButton",
                     "ipcIdentifier": "",
                     "leftClickExec": "noctalia-shell ipc call launcher toggle",
@@ -132,33 +144,18 @@
             ],
             "right": [
                 {
-                    "compactMode": true,
-                    "diskPath": "/",
-                    "id": "SystemMonitor",
-                    "showCpuTemp": true,
-                    "showCpuUsage": true,
-                    "showDiskUsage": false,
-                    "showGpuTemp": false,
-                    "showLoadAverage": false,
-                    "showMemoryAsPercent": false,
-                    "showMemoryUsage": true,
-                    "showNetworkStats": false,
-                    "useMonospaceFont": true,
-                    "usePrimaryColor": false
-                },
-                {
                     "defaultSettings": {
-                        "debug": false,
-                        "rogcc": {
-                            "listenToNotifications": false
-                        },
-                        "supergfxctl": {
-                            "patchPending": true,
-                            "polling": false,
-                            "pollingInterval": 3000
-                        }
+                        "autoHeight": true,
+                        "cheatsheetData": [
+                        ],
+                        "columnCount": 3,
+                        "detectedCompositor": "",
+                        "hyprlandConfigPath": "~/.config/hypr/hyprland.conf",
+                        "niriConfigPath": "~/.config/niri/config.kdl",
+                        "windowHeight": 0,
+                        "windowWidth": 1400
                     },
-                    "id": "plugin:noctalia-supergfxctl"
+                    "id": "plugin:keybind-cheatsheet"
                 },
                 {
                     "blacklist": [
@@ -177,19 +174,12 @@
                 },
                 {
                     "displayMode": "onhover",
-                    "id": "Volume",
-                    "middleClickCommand": "pwvucontrol || pavucontrol"
-                },
-                {
-                    "displayMode": "onhover",
                     "id": "Bluetooth"
                 },
                 {
-                    "defaultSettings": {
-                        "hideBackground": false,
-                        "minimumThreshold": 10
-                    },
-                    "id": "plugin:catwalk"
+                    "displayMode": "onhover",
+                    "id": "Volume",
+                    "middleClickCommand": "pwvucontrol || pavucontrol"
                 },
                 {
                     "colorizeDistroLogo": false,
@@ -279,24 +269,47 @@
                     "id": "Notifications"
                 },
                 {
-                    "id": "PowerProfile"
-                },
-                {
-                    "id": "KeepAwake"
-                },
-                {
-                    "id": "NightLight"
+                    "id": "WiFi"
                 }
             ]
         }
     },
     "desktopWidgets": {
-        "enabled": false,
-        "gridSnap": false,
+        "enabled": true,
+        "gridSnap": true,
         "monitorWidgets": [
             {
                 "name": "Virtual-1",
                 "widgets": [
+                ]
+            },
+            {
+                "name": "DP-2",
+                "widgets": [
+                    {
+                        "clockStyle": "minimal",
+                        "customFont": "",
+                        "format": "HH:mm\\nd MMMM yyyy",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "showBackground": true,
+                        "useCustomFont": false,
+                        "usePrimaryColor": false,
+                        "x": 20,
+                        "y": 1000
+                    },
+                    {
+                        "hideMode": "visible",
+                        "id": "MediaPlayer",
+                        "roundedCorners": true,
+                        "showAlbumArt": true,
+                        "showBackground": true,
+                        "showButtons": true,
+                        "showVisualizer": true,
+                        "visualizerType": "linear",
+                        "x": 740,
+                        "y": 980
+                    }
                 ]
             }
         ]
@@ -316,7 +329,7 @@
         "pinnedApps": [
         ],
         "pinnedStatic": false,
-        "position": "bottom",
+        "position": "top",
         "size": 1
     },
     "general": {
@@ -326,7 +339,7 @@
         "avatarImage": "/home/lukas/Downloads/moon.png",
         "boxRadiusRatio": 1,
         "compactLockScreen": false,
-        "dimmerOpacity": 0.3,
+        "dimmerOpacity": 0,
         "enableShadows": false,
         "forceBlackScreenCorners": false,
         "iRadiusRatio": 1,
@@ -351,6 +364,7 @@
         "performanceModeEnabled": "",
         "screenLock": "",
         "screenUnlock": "",
+        "session": "",
         "wallpaperChange": ""
     },
     "location": {
@@ -392,6 +406,8 @@
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
+            "HDMI-A-1",
+            "DP-2"
         ],
         "normalUrgencyDuration": 8,
         "overlayLayer": true,
@@ -403,12 +419,12 @@
         },
         "sounds": {
             "criticalSoundFile": "",
-            "enabled": false,
+            "enabled": true,
             "excludedApps": "discord,firefox,chrome,chromium,edge",
             "lowSoundFile": "",
             "normalSoundFile": "",
             "separateSounds": false,
-            "volume": 0.5
+            "volume": 0.2
         }
     },
     "osd": {
@@ -474,7 +490,7 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 39,
+    "settingsVersion": 40,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 3000,
@@ -500,50 +516,67 @@
         "warningColor": ""
     },
     "templates": {
-        "alacritty": true,
-        "cava": false,
-        "code": true,
-        "discord": true,
-        "emacs": false,
-        "enableUserTemplates": false,
-        "foot": false,
-        "fuzzel": true,
-        "ghostty": true,
-        "gtk": true,
-        "helix": false,
-        "hyprland": false,
-        "kcolorscheme": true,
-        "kitty": false,
-        "mango": false,
-        "niri": true,
-        "pywalfox": false,
-        "qt": true,
-        "spicetify": false,
-        "telegram": false,
-        "vicinae": false,
-        "walker": false,
-        "wezterm": false,
-        "yazi": false,
-        "zed": false,
-        "zenBrowser": false
+        "activeTemplates": [
+            {
+                "enabled": true,
+                "id": "alacritty"
+            },
+            {
+                "enabled": true,
+                "id": "discord"
+            },
+            {
+                "enabled": true,
+                "id": "fuzzel"
+            },
+            {
+                "enabled": true,
+                "id": "gtk"
+            },
+            {
+                "enabled": true,
+                "id": "kcolorscheme"
+            },
+            {
+                "enabled": true,
+                "id": "kitty"
+            },
+            {
+                "enabled": true,
+                "id": "niri"
+            },
+            {
+                "enabled": true,
+                "id": "qt"
+            },
+            {
+                "enabled": true,
+                "id": "pywalfox"
+            },
+            {
+                "enabled": true,
+                "id": "code"
+            }
+        ],
+        "enableUserTemplates": false
     },
     "ui": {
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
-        "boxBorderEnabled": false,
+        "boxBorderEnabled": true,
         "fontDefault": "DejaVu Sans",
         "fontDefaultScale": 1,
         "fontFixed": "DejaVu Sans Mono",
         "fontFixedScale": 1,
         "networkPanelView": "wifi",
-        "panelBackgroundOpacity": 0.8,
+        "panelBackgroundOpacity": 0.8500000000000001,
         "panelsAttachedToBar": true,
         "settingsPanelMode": "attached",
         "tooltipsEnabled": true,
         "wifiDetailsViewMode": "grid"
     },
     "wallpaper": {
-        "directory": "/home/lukas/Pictures",
+        "directory": "/home/lukas/Pictures/walls",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",
@@ -558,7 +591,7 @@
         "recursiveSearch": true,
         "setWallpaperOnAllMonitors": true,
         "solidColor": "#1a1a2e",
-        "transitionDuration": 1500,
+        "transitionDuration": 1000,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": "random",
         "useSolidColor": false,

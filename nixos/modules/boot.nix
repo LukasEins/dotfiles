@@ -21,17 +21,14 @@
 hardware.cpu.amd.updateMicrocode=true;
 hardware.bluetooth.enable=true;
 
-services.displayManager.sddm = {
-  enable = true;
-  wayland.enable = true;
-    theme = "catppuccin-mocha-mauve";
-  };
 
-  environment.systemPackages = [ 
-    (pkgs.catppuccin-sddm.override {
-      flavor = "mocha";
-      accent = "mauve";
-    })
-  ];
+services.displayManager={
+  gdm.enable=true;
+  defaultSession="niri";
+    autoLogin={
+      enable=true;
+      user="lukas";
+       };
+    };
 }
 

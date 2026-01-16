@@ -10,11 +10,10 @@
  git
  fastfetch
  alacritty
+ kitty
  eog 
- adw-gtk3
  xwayland-satellite
  fuzzel
- matugen
  mako
  xdg-desktop-portal-gtk
  xdg-desktop-portal-gnome
@@ -23,9 +22,13 @@
  (whitesur-icon-theme.override {themeVariants = [ "green" ]; })
  (reversal-icon-theme.override {colorVariants = [ "-green" ]; })
  (colloid-icon-theme.override {colorVariants = [ "green" ]; })
+ rose-pine-cursor
+ matugen
+ adw-gtk3
  file-roller
  nwg-look
  gedit
+ vscode
  btop
  davinci-resolve
  ncdu
@@ -33,10 +36,9 @@
  qbittorrent
  p7zip-rar
  ani-cli
- kitty
  ntfs3g
  ascii-image-converter
- rose-pine-cursor
+ mpv
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
  #notion-app
  #lxmenu-data

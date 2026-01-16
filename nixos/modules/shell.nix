@@ -8,7 +8,14 @@
     enableCompletion = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
-
+	ohMyZsh = {
+     	 enable = true;
+      	plugins = [
+     	   "git"
+     	   "z"
+   	   ];
+   	   theme = "robbyrussell";
+ 	   };
     shellAliases = {
       ll = "ls -l";
       edit = "sudo -e";

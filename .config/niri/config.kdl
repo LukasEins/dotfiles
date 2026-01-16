@@ -31,13 +31,41 @@ input {
      focus-follows-mouse max-scroll-amount="0%"
 }
 
+
+cursor{
+xcursor-theme "BreezeX-RosePine-Linux"
+xcursor-size 24
+}
+
 // niri msg outputs to find names
-\-output "Virtual-1" {
-    mode "3840x2160@120"
-    scale 1.25
+
+output "DP-2" {
+    mode "1920x1080@144.001"
+    scale 1.0
  // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
-    position x=1280 y=0
+    position x=0 y=420
+}
+
+output "DP-1" {
+    mode "3840x2160@120"
+    //mode "3840x2160@143.857"
+    scale 1.25
+    variable-refresh-rate
+    focus-at-startup
+ // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
+    transform "normal"
+   position x=1920 y=96
+}
+
+
+
+output "HDMI-A-1" {
+    mode "1920x1080@60"
+    scale 1.0
+ // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
+    transform "90"
+  position x=4992 y=0
 }
 
 environment{
@@ -132,7 +160,17 @@ window-rule {
     draw-border-with-background false
     geometry-corner-radius 8
     clip-to-geometry true
-    open-on-workspace "1"
+    //open-on-workspace "1"
+    open-maximized true
+    opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"discord$"#
+    draw-border-with-background false
+    geometry-corner-radius 8
+    clip-to-geometry true
+    //open-on-workspace "1"
     open-maximized true
     opacity 1.0
 }
@@ -157,10 +195,12 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: " { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: lockscreen" { spawn-sh "noctalia-shell ipc call lockScreen lock";}
-
+    Mod+W {spawn "firefox";}
+    Mod+E {spawn "thunar";}
+    Mod+Ctrl+V {spawn-sh "noctalia-shell ipc call launcher clipboard";}
     //Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
@@ -294,7 +334,7 @@ binds {
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
-    Mod+W { toggle-column-tabbed-display; }
+    //Mod+W { toggle-column-tabbed-display; }
 
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
@@ -305,7 +345,7 @@ binds {
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    Mod+Shift+E { quit; }
+    Mod+Shift+E { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
     Ctrl+Alt+Delete { quit; }
 
     Mod+Shift+P { power-off-monitors; }

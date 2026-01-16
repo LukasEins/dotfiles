@@ -7,15 +7,11 @@
         }
     ],
     "states": {
-        "catwalk": {
-            "enabled": true,
-            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
-        },
         "kaomoji-provider": {
             "enabled": true,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         },
-        "noctalia-supergfxctl": {
+        "keybind-cheatsheet": {
             "enabled": true,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         },

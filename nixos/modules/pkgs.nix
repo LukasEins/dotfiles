@@ -5,7 +5,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
+environment.systemPackages = with pkgs; [
  wget
  git
  fastfetch
@@ -18,10 +18,7 @@
  xdg-desktop-portal-gtk
  xdg-desktop-portal-gnome
  xdg-user-dirs
- (discord.override{withEquicord = true; withOpenASAR = true;})
- (whitesur-icon-theme.override {themeVariants = [ "green" ]; })
- (reversal-icon-theme.override {colorVariants = [ "-green" ]; })
- (colloid-icon-theme.override {colorVariants = [ "green" ]; })
+ (discord.override{withEquicord = true; withOpenASAR = false;})
  rose-pine-cursor
  matugen
  adw-gtk3
@@ -30,20 +27,18 @@
  gedit
  vscode
  btop
- davinci-resolve
+ kdePackages.kdenlive
  ncdu
  calibre
  qbittorrent
  p7zip-rar
  ani-cli
  ntfs3g
- ascii-image-converter
  mpv
- oh-my-zsh
+ pywalfox-native
+ wtype
+ youtube-tui
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
- #notion-app
- #lxmenu-data
- #shared-mime-info
   ]; 
 
 }

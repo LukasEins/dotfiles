@@ -1,6 +1,6 @@
 {
     "appLauncher": {
-        "autoPasteClipboard": false,
+        "autoPasteClipboard": true,
         "clipboardWrapText": true,
         "customLaunchPrefix": "",
         "customLaunchPrefixEnabled": false,
@@ -20,7 +20,10 @@
             "org.prismlauncher.PrismLauncher",
             "org.qbittorrent.qBittorrent",
             "code",
-            "org.pulseaudio.pavucontrol"
+            "org.pulseaudio.pavucontrol",
+            "thunar",
+            "calibre-gui",
+            "org.kde.kdenlive"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -37,6 +40,7 @@
         ],
         "preferredPlayer": "mpv",
         "visualizerType": "linear",
+        "volumeFeedback": false,
         "volumeOverdrive": true,
         "volumeStep": 2
     },
@@ -53,13 +57,15 @@
         ],
         "outerCorners": true,
         "position": "top",
+        "screenOverrides": [
+        ],
         "showCapsule": false,
         "showOutline": false,
         "useSeparateOpacity": true,
         "widgets": {
             "center": [
                 {
-                    "characterCount": 10,
+                    "characterCount": 3,
                     "colorizeIcons": false,
                     "enableScrollWheel": true,
                     "followFocusedScreen": false,
@@ -74,7 +80,7 @@
                 },
                 {
                     "customFont": "Noto Sans",
-                    "formatHorizontal": "dd.MM | HH:mm ddd",
+                    "formatHorizontal": "dd.MM ddd | HH:mm",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
@@ -84,10 +90,10 @@
             ],
             "left": [
                 {
-                    "colorizeSystemIcon": "secondary",
+                    "colorizeSystemIcon": "primary",
                     "enableColorization": true,
                     "hideMode": "alwaysExpanded",
-                    "icon": "niri",
+                    "icon": "brand-4chan",
                     "id": "CustomButton",
                     "ipcIdentifier": "",
                     "leftClickExec": "noctalia-shell ipc call launcher toggle",
@@ -122,40 +128,26 @@
                     "scrollingMode": "hover",
                     "showIcon": true,
                     "useFixedWidth": false
-                },
+                }
+            ],
+            "right": [
                 {
-                    "compactMode": false,
+                    "compactMode": true,
                     "compactShowAlbumArt": true,
                     "compactShowVisualizer": false,
-                    "hideMode": "hidden",
+                    "hideMode": "idle",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
                     "maxWidth": 145,
                     "panelShowAlbumArt": true,
                     "panelShowVisualizer": true,
                     "scrollingMode": "hover",
-                    "showAlbumArt": false,
+                    "showAlbumArt": true,
                     "showArtistFirst": true,
                     "showProgressRing": true,
-                    "showVisualizer": false,
+                    "showVisualizer": true,
                     "useFixedWidth": false,
                     "visualizerType": "linear"
-                }
-            ],
-            "right": [
-                {
-                    "defaultSettings": {
-                        "autoHeight": true,
-                        "cheatsheetData": [
-                        ],
-                        "columnCount": 3,
-                        "detectedCompositor": "",
-                        "hyprlandConfigPath": "~/.config/hypr/hyprland.conf",
-                        "niriConfigPath": "~/.config/niri/config.kdl",
-                        "windowHeight": 0,
-                        "windowWidth": 1400
-                    },
-                    "id": "plugin:keybind-cheatsheet"
                 },
                 {
                     "blacklist": [
@@ -169,8 +161,16 @@
                 },
                 {
                     "hideWhenZero": true,
+                    "hideWhenZeroUnread": false,
                     "id": "NotificationHistory",
                     "showUnreadBadge": true
+                },
+                {
+                    "defaultSettings": {
+                        "compactMode": false,
+                        "defaultDuration": 0
+                    },
+                    "id": "plugin:timer"
                 },
                 {
                     "displayMode": "onhover",
@@ -185,7 +185,7 @@
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
                     "customIconPath": "",
-                    "enableColorization": true,
+                    "enableColorization": false,
                     "icon": "adjustments",
                     "id": "ControlCenter",
                     "useDistroLogo": true
@@ -216,9 +216,9 @@
     },
     "colorSchemes": {
         "darkMode": true,
+        "extractionMethod": "default",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "matugenSchemeType": "scheme-content",
         "predefinedScheme": "Ayu",
         "schedulingMode": "off",
         "useWallpaperColors": true
@@ -329,14 +329,14 @@
         "pinnedApps": [
         ],
         "pinnedStatic": false,
-        "position": "top",
+        "position": "bottom",
         "size": 1
     },
     "general": {
         "allowPanelsOnScreenWithoutBar": true,
         "animationDisabled": true,
         "animationSpeed": 2,
-        "avatarImage": "/home/lukas/Downloads/moon.png",
+        "avatarImage": "/home/lukas/Pictures/20251112_221602-removebg-preview(1).png",
         "boxRadiusRatio": 1,
         "compactLockScreen": false,
         "dimmerOpacity": 0,
@@ -355,7 +355,7 @@
         "showHibernateOnLockScreen": false,
         "showScreenCorners": false,
         "showSessionButtonsOnLockScreen": true,
-        "telemetryEnabled": true
+        "telemetryEnabled": false
     },
     "hooks": {
         "darkModeChange": "",
@@ -402,6 +402,7 @@
         "backgroundOpacity": 0.8,
         "criticalUrgencyDuration": 15,
         "enableKeyboardLayoutToast": true,
+        "enableMediaToast": false,
         "enabled": true,
         "location": "top_right",
         "lowUrgencyDuration": 3,
@@ -460,7 +461,7 @@
                 "action": "suspend",
                 "command": "",
                 "countdownEnabled": true,
-                "enabled": false
+                "enabled": true
             },
             {
                 "action": "hibernate",
@@ -490,7 +491,7 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 40,
+    "settingsVersion": 41,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 3000,
@@ -509,6 +510,8 @@
         "memPollingInterval": 3000,
         "memWarningThreshold": 80,
         "networkPollingInterval": 3000,
+        "swapCriticalThreshold": 90,
+        "swapWarningThreshold": 80,
         "tempCriticalThreshold": 90,
         "tempPollingInterval": 3000,
         "tempWarningThreshold": 80,
@@ -551,14 +554,14 @@
             },
             {
                 "enabled": true,
-                "id": "pywalfox"
+                "id": "code"
             },
             {
                 "enabled": true,
-                "id": "code"
+                "id": "pywalfox"
             }
         ],
-        "enableUserTemplates": false
+        "enableUserTheming": false
     },
     "ui": {
         "bluetoothDetailsViewMode": "grid",
@@ -576,7 +579,7 @@
         "wifiDetailsViewMode": "grid"
     },
     "wallpaper": {
-        "directory": "/home/lukas/Pictures/walls",
+        "directory": "/home/lukas/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",

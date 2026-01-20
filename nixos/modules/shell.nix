@@ -1,8 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -21,7 +19,7 @@
       edit = "sudo -e";
       rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/";
       fu = "sudo nix flake update --flake /etc/nixos/";
-      fetch = "hyfetch";
+      fetch = "fastfetch";
       fur = "sudo nix flake update --flake /etc/nixos/ && sudo nixos-rebuild switch --flake /etc/nixos/";
     };
 

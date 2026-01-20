@@ -4,7 +4,7 @@ input {
 	    repeat-rate 35
         xkb {
              layout "de,us"
-             options "grp:win_space_toggle,compose:ralt,caps:ctrl_modifier"
+             options "grp:win_space_toggle,caps:ctrl_modifier"
         }
         //numlock
     }
@@ -40,7 +40,7 @@ xcursor-size 24
 // niri msg outputs to find names
 
 output "DP-2" {
-    mode "1920x1080@144.001"
+    mode "1920x1080@119.982"
     scale 1.0
  // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
@@ -51,7 +51,7 @@ output "DP-1" {
     mode "3840x2160@120"
     //mode "3840x2160@143.857"
     scale 1.25
-    variable-refresh-rate
+    //variable-refresh-rate
     focus-at-startup
  // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
@@ -71,6 +71,7 @@ output "HDMI-A-1" {
 environment{
 QT_QPA_PLATFORMTHEME_QT6 "gtk3"
 QT_QPA_PLATFORMTHEME "gtk3"
+ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 layout {
@@ -170,7 +171,7 @@ window-rule {
     draw-border-with-background false
     geometry-corner-radius 8
     clip-to-geometry true
-    //open-on-workspace "1"
+    open-on-output "HDMI-A-1"
     open-maximized true
     opacity 1.0
 }

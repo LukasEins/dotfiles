@@ -16,7 +16,8 @@
 	enable=true;
 	enable32Bit=true;
         extraPackages = with pkgs; [
-          mesa.opencl # Enables Rusticl (OpenCL) support
+          #mesa.opencl
+	  rocmPackages.clr.icd
     ];
   };
 

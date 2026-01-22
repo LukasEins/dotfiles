@@ -69,7 +69,11 @@ output "HDMI-A-1" {
 }
 
 environment{
-QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+//QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+//QT_QPA_PLATFORM "wayland"
+//QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+//XDG_SESSION_TYPE "wayland"
+//XDG_CURRENT_DESKTOP "niri"
 QT_QPA_PLATFORMTHEME "gtk3"
 ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
@@ -142,14 +146,18 @@ animations {
 }
 
 workspace "1" { }
-workspace "2" { }
-workspace "3" { }
-workspace "4" { }
+//workspace "2" { }
 
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
+
+window-rule {
+    match app-id="resolve"
+    default-column-width { proportion 1.0; }
+}
+
 
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
@@ -354,10 +362,10 @@ binds {
 
 include "./noctalia.kdl"
 
-layer-rule {
-    match namespace="^noctalia-wallpaper-eDP-1"
-    place-within-backdrop true
-}
+//layer-rule {
+//    match namespace="^noctalia-wallpaper-eDP-1"
+//    place-within-backdrop true
+//}
 
 overview {
     workspace-shadow {

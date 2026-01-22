@@ -3,6 +3,7 @@
 {
 
   programs.firefox.enable=true;
+  programs.dconf.enable=true;
   programs.niri.enable=true;
   programs.thunar.enable=true;
   programs.xfconf.enable = true;
@@ -10,14 +11,12 @@
   thunar-archive-plugin # Requires an Archive manager like file-roller, ark, etc
   thunar-volman
   ];
-# programs.xwayland.enable=true;
-# xdg.portal={
-#	enable=true;
-#	extraPortals= with pkgs; [
-#		xdg-desktop-portal-gnome
-#		xdg-desktop-portal-gtk	
-#	];
-#	config.niri.default=[ "gnome" "gtk" ];
-#};
-
+programs.xwayland.enable=true;
+xdg.portal = {
+  enable = true;
+  config.niri = {
+    default = [ "gnome" "gtk" ];
+    "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # Force GTK for files
+  };
+};
 }

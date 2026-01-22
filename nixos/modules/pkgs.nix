@@ -2,10 +2,9 @@
 
 {
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
  wget
  git
  fastfetch
@@ -18,16 +17,16 @@ environment.systemPackages = with pkgs; [
  xdg-desktop-portal-gtk
  xdg-desktop-portal-gnome
  xdg-user-dirs
- (discord.override{withEquicord = true; withOpenASAR = false;})
  rose-pine-cursor
- matugen
  adw-gtk3
+ adwaita-icon-theme
+ gsettings-desktop-schemas
  file-roller
  nwg-look
  gedit
  vscode
  btop
- kdePackages.kdenlive
+ pkgs.davinci-resolve
  ncdu
  calibre
  qbittorrent
@@ -35,9 +34,10 @@ environment.systemPackages = with pkgs; [
  ani-cli
  ntfs3g
  mpv
+ ffmpeg
  pywalfox-native
  wtype
- youtube-tui
+ (discord-canary.override{withEquicord=true;})
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
   ]; 
 

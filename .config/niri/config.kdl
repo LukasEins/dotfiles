@@ -242,8 +242,8 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     Mod+M     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    Mod+B {spawn-sh "wpctl set-default 54";}
-    Mod+N {spawn-sh "wpctl set-default 55";}
+    Mod+B { spawn-sh "wpctl set-default $(pw-cli info 'alsa_output.usb-Synaptics_Hi-Res_Audio_000000000000000000000000-00.analog-stereo' | grep 'id:' | awk '{print $2}')"; }
+    Mod+N { spawn-sh "wpctl set-default $(pw-cli info 'alsa_output.usb-Burr-Brown_from_TI_USB_Audio_CODEC-00.analog-stereo-output' | grep 'id:' | awk '{print $2}')"; }
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }

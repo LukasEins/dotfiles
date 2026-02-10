@@ -37,7 +37,17 @@
  ffmpeg
  pywalfox-native
  wtype
- (discord-canary.override{withEquicord=true;})
+ azahar
+ filezilla
+ winetricks
+ wineWowPackages.stable
+ protontricks
+ equibop
+ discord
+ audacity
+ cloudflare-warp
+ mpvpaper
+ gpu-screen-recorder
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
   ]; 
 

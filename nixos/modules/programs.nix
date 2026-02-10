@@ -1,7 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-
   programs.firefox.enable=true;
   programs.dconf.enable=true;
   programs.niri.enable=true;

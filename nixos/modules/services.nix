@@ -1,7 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-  services.resolved.enable = true;
   security.polkit.enable=true;
   security.rtkit.enable = true;
   services.tumbler.enable = true;

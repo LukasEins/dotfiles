@@ -3,7 +3,7 @@
 {
   environment.variables = {
     RUSTICL_ENABLE = "radeonsi";
-    XCURSOR_SIZE = "24";
+    XCURSOR_SIZE = "26";
     XCURSOR_THEME = "BreezeX-RosePine-Linux";
   };
 

@@ -31,10 +31,9 @@ input {
      focus-follows-mouse max-scroll-amount="0%"
 }
 
-
 cursor{
 xcursor-theme "BreezeX-RosePine-Linux"
-xcursor-size 24
+xcursor-size 26
 }
 
 // niri msg outputs to find names
@@ -56,6 +55,9 @@ output "DP-1" {
  // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
    position x=1920 y=96
+    hot-corners {
+       top-left 
+    }
 }
 
 
@@ -79,7 +81,7 @@ ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 layout {
-    gaps 5
+    gaps 2
     background-color "transparent"
     center-focused-column "never"
     preset-column-widths {  
@@ -90,7 +92,7 @@ layout {
     }
 
     // preset-window-heights { }
-    default-column-width { proportion 0.45; }
+    default-column-width { proportion 0.485; }
 
     focus-ring {
         width 1.5
@@ -111,9 +113,9 @@ layout {
     }
 
     shadow {
-         on
+         off
          draw-behind-window true
-        softness 30
+        softness 15
         spread 5
         offset x=0 y=5
         color "#0007"
@@ -171,7 +173,30 @@ window-rule {
     clip-to-geometry true
     //open-on-workspace "1"
     open-maximized true
+    open-maximized-to-edges true
     opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"equibop$"#
+    draw-border-with-background false
+    geometry-corner-radius 8
+    clip-to-geometry true
+    open-on-output "HDMI-A-1"
+    open-maximized true
+    open-maximized-to-edges true
+    opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"pavucontrol$"#
+    draw-border-with-background false
+    geometry-corner-radius 8
+    opacity 1.0
+    open-floating true
+    min-height 1000
+    min-width 1000
+    default-floating-position x=900 y=900 relative-to="bottom-left"
 }
 
 window-rule {
@@ -181,6 +206,7 @@ window-rule {
     clip-to-geometry true
     open-on-output "HDMI-A-1"
     open-maximized true
+    open-maximized-to-edges true
     opacity 1.0
 }
 
@@ -204,7 +230,7 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: " { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: lockscreen" { spawn-sh "noctalia-shell ipc call lockScreen lock";}
     Mod+W {spawn "firefox";}
@@ -215,8 +241,9 @@ binds {
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
+    Mod+M     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    Mod+B {spawn-sh "wpctl set-default 54";}
+    Mod+N {spawn-sh "wpctl set-default 55";}
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
@@ -348,8 +375,8 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
+    Ctrl+Print { screenshot; }
+    Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
@@ -373,8 +400,13 @@ overview {
     }
 }
 
+layer-rule {
+    place-within-backdrop true
+}
+
 gestures {
     hot-corners {
-        off
+       off 
     }
 }
+

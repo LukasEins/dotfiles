@@ -3,7 +3,7 @@
 {
 
   programs.steam = {
-	enable=true;	
+	enable=true;
 	gamescopeSession.enable=true;
   };
   programs.gamemode.enable=true; 
@@ -16,7 +16,7 @@
 	enable=true;
 	enable32Bit=true;
         extraPackages = with pkgs; [
-          #mesa.opencl
+          mesa.opencl
 	  rocmPackages.clr.icd
     ];
   };
@@ -26,6 +26,8 @@
  protonup-qt
  lutris
  prismlauncher
+ azahar
+ pcsx2
  inputs.hytale-launcher.packages.${stdenv.hostPlatform.system}.default
   ];
 

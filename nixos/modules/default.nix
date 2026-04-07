@@ -20,5 +20,6 @@
       ./users.nix
       ./fonts.nix
       ./cachyos.nix
+      ./samba.nix
     ];
 }

@@ -7,7 +7,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "lukas";
-    extraGroups = [ "networkmanager" "wheel" "video" "render" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "render" "samba" "sambashare" ];
     packages = with pkgs; [];
   };
 

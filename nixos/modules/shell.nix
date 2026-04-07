@@ -1,6 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
+
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -16,6 +18,7 @@
  	   };
     shellAliases = {
       ll = "ls -l";
+      cam = "ffplay -f video4linux2 -i /dev/video0 -vf 'hflip' ";
       edit = "sudo -e";
       rebuild = "sudo nixos-rebuild switch --flake /etc/nixos/";
       fu = "sudo nix flake update --flake /etc/nixos/";

@@ -21,6 +21,7 @@
  adw-gtk3
  adwaita-icon-theme
  gsettings-desktop-schemas
+ glib
  file-roller
  nwg-look
  gedit
@@ -28,26 +29,36 @@
  btop
  pkgs.davinci-resolve
  ncdu
- calibre
+ #calibre
  qbittorrent
- p7zip-rar
+ p7zip
  ani-cli
  ntfs3g
  mpv
  ffmpeg
- pywalfox-native
  wtype
- azahar
  filezilla
- winetricks
- wineWowPackages.stable
  protontricks
  equibop
  discord
  audacity
- cloudflare-warp
+ #cloudflare-warp
  mpvpaper
  gpu-screen-recorder
+ nvtopPackages.amd
+ kdePackages.qttools
+ nicotine-plus
+ strawberry
+ yt-dlp
+ proton-vpn
+ gparted
+ makemkv
+ asunder
+ mangayomi
+ easyeffects
+ foliate
+ zathura
+ pywalfox-native
  inputs.noctalia.packages.${stdenv.hostPlatform.system}.default 
   ]; 
 

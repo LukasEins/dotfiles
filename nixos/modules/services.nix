@@ -8,5 +8,6 @@
   services.fstrim.enable=true;
   services.gnome.gnome-keyring.enable = true;
   services.udisks2.enable = true;
-  #services.mullvad-vpn.package = pkgs.mullvad-vpn;
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
 }

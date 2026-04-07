@@ -8,15 +8,13 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-    wireplumber.enable=true;
+  #  wireplumber.enable=true;
   };
 
   services.pipewire.extraConfig.pipewire."92-low-latency" = {
     "context.properties" = {
-      "default.clock.rate" = 48000;
-      #"default.clock.quantum" = 32;
-      "default.clock.min-quantum" = 1024;
-      #"default.clock.max-quantum" = 32;
+     "default.clock.rate" = 48000;
+     "default.clock.allowed-rates" = [ 48000 ];
     };
   };
 
@@ -38,12 +36,27 @@
         };
       }
     ];
+  "51-firefox-no-restore" = {
+    "wireplumber.rules" = [
+      {
+        matches = [
+          { "application.name" = "Firefox"; }
+        ];
+        actions = {
+          modify-props = {
+            "stream.restore-props" = false;
+          };
+        };
+      }
+    ];
+  }; 
   };
 
 
 
   environment.systemPackages = with pkgs; [
- pavucontrol  
+ pavucontrol 
+ qpwgraph
   ];
 
 }

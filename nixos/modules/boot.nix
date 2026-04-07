@@ -1,6 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 {
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 10;
@@ -11,9 +12,11 @@
     "zswap.max_pool_percent=20" # maximum percentage of RAM that zswap is allowed to use
     "zswap.shrinker_enabled=1" # whether to shrink the pool proactively on high memory pressure
   ];
+  
 
 hardware.bluetooth.enable=true;
-
+hardware.enableAllFirmware=true;
+#services.displayManager.gdm.wayland = false;
 services.displayManager={
   gdm.enable=true;
   defaultSession="niri";

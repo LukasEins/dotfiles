@@ -22,7 +22,7 @@
   };
 };*/
   services.resolved.enable=true;
-  services.cloudflare-warp.enable=true;
+  #services.cloudflare-warp.enable=true;
 
   networking.networkmanager.wifi.powersave = false;
   networking.networkmanager.enable = true;

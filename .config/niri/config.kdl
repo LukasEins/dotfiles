@@ -27,7 +27,7 @@ input {
         // scroll-button-lock
         // middle-emulation
     }
-     warp-mouse-to-focus
+     //warp-mouse-to-focus
      focus-follows-mouse max-scroll-amount="0%"
 }
 
@@ -44,20 +44,23 @@ output "DP-2" {
  // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
     position x=0 y=420
+    hot-corners {
+	top-left
+    }
 }
 
 output "DP-1" {
     mode "3840x2160@120"
     //mode "3840x2160@143.857"
     scale 1.25
-    //variable-refresh-rate
+   // variable-refresh-rate
     focus-at-startup
  // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
    position x=1920 y=96
-    hot-corners {
-       top-left 
-    }
+    //hot-corners {
+      // top-left 
+    //}
 }
 
 
@@ -92,7 +95,7 @@ layout {
     }
 
     // preset-window-heights { }
-    default-column-width { proportion 0.485; }
+    default-column-width { proportion 0.5; }
 
     focus-ring {
         width 1.5
@@ -144,9 +147,6 @@ prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-animations {
-}
-
 workspace "1" { }
 //workspace "2" { }
 
@@ -154,6 +154,12 @@ window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
+
+/*window-rule {
+    match on-output="HDMI-A-1"
+    open-maximized true
+    open-maximized-to-edges true
+ }*/
 
 window-rule {
     match app-id="resolve"
@@ -178,7 +184,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"equibop$"#
+    match app-id=r#"electron$"#
     draw-border-with-background false
     geometry-corner-radius 8
     clip-to-geometry true
@@ -223,7 +229,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
@@ -395,6 +401,7 @@ include "./noctalia.kdl"
 //}
 
 overview {
+	zoom 0.4
     workspace-shadow {
         off
     }
@@ -410,3 +417,66 @@ gestures {
     }
 }
 
+animations {
+    window-close {
+        duration-ms 400
+        curve "linear"
+        custom-shader r#"
+            vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+                float t = niri_clamped_progress;
+                vec2 p = coords_geo.xy;
+                const int COLS = 5;
+                const int ROWS = 5;
+                vec2 cell_size = 1.0 / vec2(float(COLS), float(ROWS));
+                float aspect = size_geo.x / size_geo.y;
+                
+                for (int y = 0; y < ROWS; y++) {
+                    for (int x = 0; x < COLS; x++) {
+                        bool split_dir = fract(sin(dot(vec2(float(x), float(y)), vec2(12.9898, 78.233))) * 43758.5453) > 0.5;
+                        for (int tri = 0; tri < 2; tri++) {
+                            vec3 id = vec3(float(x), float(y), float(tri));
+                            float h1 = fract(sin(dot(id, vec3(12.9898, 78.233, 37.719))) * 43758.5453);
+                            float h2 = fract(sin(dot(id, vec3(39.346, 11.135, 83.155))) * 43758.5453);
+                            float h3 = fract(sin(dot(id, vec3(73.156, 52.235, 9.151))) * 43758.5453);
+                            
+                            vec2 cell_min = vec2(float(x), float(y)) * cell_size;
+                            vec2 rel_center = split_dir ? ((tri == 0) ? vec2(0.666, 0.333) : vec2(0.333, 0.666)) : ((tri == 0) ? vec2(0.333, 0.333) : vec2(0.666, 0.666));
+                            vec2 orig_center = cell_min + rel_center * cell_size;
+                            
+                            vec2 explosion_dir = normalize(orig_center - vec2(0.5)) + (vec2(h1, h2) - 0.5) * 0.2;
+                            vec2 velocity = explosion_dir * (0.2 + h3 * 0.8) * 1.5;
+                            velocity.y += 2.0 * t;
+                            
+                            vec2 current_center = orig_center + velocity * t;
+                            float angle = ((h1 > 0.5) ? 1.0 : -1.0) * (0.5 + h2) * 4.0 * t;
+                            float s = sin(angle); float c = cos(angle);
+                            mat2 rot = mat2(c, -s, s, c);
+                            
+                            vec2 local_p = p - current_center;
+                            local_p.x *= aspect; local_p = rot * local_p; local_p.x /= aspect;
+                            local_p += orig_center;
+                            
+                            vec2 rel_p = (local_p - cell_min) / cell_size;
+                            float margin = 0.02;
+                            bool in_bounds = rel_p.x > margin && rel_p.x < 1.0 - margin && rel_p.y > margin && rel_p.y < 1.0 - margin;
+                            bool in_tri = split_dir ? (tri == 0 ? rel_p.x > rel_p.y + margin : rel_p.x <= rel_p.y - margin) : (tri == 0 ? rel_p.x + rel_p.y < 1.0 - margin : rel_p.x + rel_p.y >= 1.0 + margin);
+                            
+                            if (in_bounds && in_tri) {
+                                vec4 final_color = vec4(0.0);
+                                // Motion blur sampling (4 samples for performance)
+                                for (int i = 0; i < 4; i++) {
+                                    float blur_offset = float(i) * 0.01 * t;
+                                    vec3 coords_tex = niri_geo_to_tex * vec3(local_p - velocity * blur_offset, 1.0);
+                                    final_color += texture2D(niri_tex, coords_tex.st);
+                                }
+                                return (final_color / 4.0) * (1.0 - smoothstep(0.3, 1.0, t));
+                            }
+                        }
+                    }
+                }
+                return vec4(0.0);
+            }
+        "#
+    }
+
+ }
